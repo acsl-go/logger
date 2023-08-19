@@ -1,4 +1,4 @@
-module lab.afx.pub/ups/logger
+module github.com/acsl-go/logger
 
 go 1.18
 
