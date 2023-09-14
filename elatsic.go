@@ -31,8 +31,6 @@ func InitElastic(cfg *ElasticConfig) error {
 		CertificateFingerprint: cfg.CAFingerprint,
 	})
 
-	fmt.Println(cfg)
-
 	if err != nil {
 		return err
 	}
