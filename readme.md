@@ -88,3 +88,29 @@ if err := InitElastic(&ElasticConfig{
     logger.LogMethod[logger.ERROR] = logger.LogElastic
 }
 ```
+
+## The Configuration
+The `logger` module can be initialized by using the `logger.Init` function. The `logger.Init` function accepts a `logger.Config` object as its parameter. The `logger.Config` object has the following fields:
+
+```go
+type Config struct {
+	Level      int    `mapstructure:"level" json:"level"`
+	Identifier string `mapstructure:"identifier" json:"identifier"`
+	Elastic    struct {
+		Addresses     []string `mapstructure:"addresses" json:"addresses"`
+		Username      string   `mapstructure:"username" json:"username"`
+		Password      string   `mapstructure:"password" json:"password"`
+		CAFingerprint string   `mapstructure:"ca" json:"ca"`
+		Index         string   `mapstructure:"index" json:"index"`
+	} `mapstructure:"elastic" json:"elastic"`
+	Methods struct {
+		LvFatal string `mapstructure:"fatal" json:"fatal"`
+		LvError string `mapstructure:"error" json:"error"`
+		LvWarn  string `mapstructure:"warn" json:"warn"`
+		LvInfo  string `mapstructure:"info" json:"info"`
+		LvDebug string `mapstructure:"debug" json:"debug"`
+	} `mapstructure:"methods" json:"methods"`
+}
+```
+
+The configuration can be loaded from a json file or as a part of `viper` configuration.
