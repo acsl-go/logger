@@ -1,22 +1,22 @@
 package logger
 
 type Config struct {
-	Level      int    `mapstructure:"level" json:"level"`
-	Identifier string `mapstructure:"identifier" json:"identifier"`
+	Level      int    `mapstructure:"level" json:"level" yaml:"level"`
+	Identifier string `mapstructure:"identifier" json:"identifier" yaml:"identifier"`
 	Elastic    struct {
-		Addresses     []string `mapstructure:"addresses" json:"addresses"`
-		Username      string   `mapstructure:"username" json:"username"`
-		Password      string   `mapstructure:"password" json:"password"`
-		CAFingerprint string   `mapstructure:"ca" json:"ca"`
-		Index         string   `mapstructure:"index" json:"index"`
-	} `mapstructure:"elastic" json:"elastic"`
+		Addresses     []string `mapstructure:"addresses" json:"addresses" yaml:"addresses"`
+		Username      string   `mapstructure:"username" json:"username" yaml:"username"`
+		Password      string   `mapstructure:"password" json:"password" yaml:"password"`
+		CAFingerprint string   `mapstructure:"ca" json:"ca" yaml:"ca"`
+		Index         string   `mapstructure:"index" json:"index" yaml:"index"`
+	} `mapstructure:"elastic" json:"elastic" yaml:"elastic"`
 	Methods struct {
-		LvFatal string `mapstructure:"fatal" json:"fatal"`
-		LvError string `mapstructure:"error" json:"error"`
-		LvWarn  string `mapstructure:"warn" json:"warn"`
-		LvInfo  string `mapstructure:"info" json:"info"`
-		LvDebug string `mapstructure:"debug" json:"debug"`
-	} `mapstructure:"methods" json:"methods"`
+		LvFatal string `mapstructure:"fatal" json:"fatal" yaml:"fatal"`
+		LvError string `mapstructure:"error" json:"error" yaml:"error"`
+		LvWarn  string `mapstructure:"warn" json:"warn" yaml:"warn"`
+		LvInfo  string `mapstructure:"info" json:"info" yaml:"info"`
+		LvDebug string `mapstructure:"debug" json:"debug" yaml:"debug"`
+	} `mapstructure:"methods" json:"methods" yaml:"methods"`
 }
 
 func Init(cfg *Config) {
