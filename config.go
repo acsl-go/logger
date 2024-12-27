@@ -23,7 +23,7 @@ func Init(cfg *Config) {
 	Level = cfg.Level
 	Identifier = cfg.Identifier
 
-	if cfg.Elastic.Addresses != nil {
+	if len(cfg.Elastic.Addresses) > 0 {
 		if e := InitElastic(&ElasticConfig{
 			Addresses:     cfg.Elastic.Addresses,
 			Username:      cfg.Elastic.Username,
